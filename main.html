@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo Todo</title>
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+</head>
+
+<body>
+    <section class="todoapp" id="todoapp">
+        <h1 id="title">todos</h1>
+        <header class="header">
+            <ul class="list-group" id="list-group">
+                <div class="list-group-item">
+                    <input class="toggle-all" type="checkbox" onclick="checkAll()">
+                    <input type="text" class="new-todo" id="new-todo" placeholder="What needs to be done?">
+                </div>
+            </ul>
+        </header>
+        <footer class="footer" id="footer">
+            <span class="todo-count">
+                <strong id="todo-count-number">0</strong> item left</span>
+            <ul class="filters">
+                <li>
+                    <a href="#/" class="selected" onclick="filterAll()">All</a>
+                </li>
+                <li>
+                    <a href="#/active" onclick="filterActive()">Active</a>
+                </li>
+                <li>
+                    <a href="#/completed" onclick="filterComplete()">Completed</a>
+                </li>
+            </ul>
+            <button class="clear-completed" onclick="clearComplete()">Clear completed</button>
+        </footer>
+    </section>
+    <footer class="info">
+        <p>Double-click to edit a todo</p>
+        <p>Created by <a href="http://twitter.com/oscargodson">Oscar Godson</a></p>
+        <p>Refactored by <a href="https://github.com/cburgmer">Christoph Burgmer</a></p>
+        <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+    </footer>
+    <script src="./public/js/jquery-3.3.1.min.js"></script>
+    <script src="./public/js/bootstrap.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
