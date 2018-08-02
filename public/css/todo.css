@@ -7,11 +7,11 @@
 }
 
 
-#title{
+.section-todo #title{
    color:  rgba(175, 47, 47, 0.15);
 }
 
-#new-todo{
+.section-todo .new-todo{
     background: rgba(0, 0, 0, 0.003);
     border: none;
     outline: none;
@@ -42,14 +42,14 @@
 .toggle-all:before {
      content: '❯';
     font-size: 22px;
-    color: #121212;
+    color: #e6e6e6;
     float: left;
 }
 
 body {
     background: #f5f5f5;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 27%;
+    margin-right: 27%;
     min-width: 150px;
 }
 
@@ -76,15 +76,8 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-.toggle::before {
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
-}
-
-.toggle:checked::after {
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-11 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
-}
-
 .toggle {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
     -webkit-appearance: none;
     position: absolute;
     top: 0;
@@ -93,8 +86,11 @@ body {
     border: none;
     width: 40px;
     height: 40px;
+    outline: none;
 }
-
+[class="toggle checked"] {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-11 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
 
 .destroy {
     position: absolute;
@@ -102,7 +98,6 @@ body {
     bottom: 0;
     margin: auto 0;
     border: none;
-    width: 40px;
     height: 40px;
     background-color: Transparent;
     border: none;
@@ -111,6 +106,7 @@ body {
     font-size: 25px;
     left: 90%;
     display: none;
+    width: 10%;
 }
 
 
@@ -123,7 +119,8 @@ body {
     padding-right: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
-    width: 85%;
+    /*width: 80%;*/
+    width: -webkit-fill-available;
 }
 
 
@@ -131,29 +128,18 @@ li {
     float: left;
 }
 
-.footer {
-    color: #777;
-    text-align: center;
-    padding-right: 15px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    margin: auto;
-    clear: both;
-    display: none;
-}
-
 .list-group-item {
     padding: 10px 10px;
     width: 100%;
 }
 
-.footer ul.filters li {
-    display: inline;
-    padding-right: 10px;
-}
-
-.footer ul.filters{
+.footer {
+    color: #777;
     text-align: center;
+    padding: 15px 15px;
+    margin: auto;
+    clear: both;
+    display: none;
 }
 
 .clear-completed{
@@ -167,6 +153,7 @@ li {
 
 .filters {
     padding: 0px 0px;
+    margin: 0px 0px;
 }
 .todo-count {
     float: left;
@@ -179,10 +166,18 @@ li {
 .filters li a {
     color: inherit;
     margin: 3px;
-    padding: 3px 7px;
+    padding: 3px 3px;
     text-decoration: none;
     border: 1px solid transparent;
     border-radius: 3px;
+}
+
+.footer ul.filters li {
+    display: inline;
+}
+
+.footer ul.filters{
+    display: inline-table;
 }
 
 .info {
@@ -198,6 +193,7 @@ li {
     text-decoration: none;
     font-weight: 400;
 }
+
 
 /*For Google Chrome:*/
 .new-todo::-webkit-input-placeholder {
@@ -217,4 +213,35 @@ li {
 /*For Opera:*/
 .new-todo:-o-input-placeholder {
     font-style: italic;
+}
+::placeholder {
+    color: #e6e6e6;
+}
+
+li[class='list-group-item completed'] label {
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+
+.clear-completed {
+    float: right;
+    cursor: pointer;
+    color: #777;
+}
+
+a[href="#/"], a[href="#/completed"], a[href="#/active"], .clear-completed, a {
+    text-decoration: none;
+}
+
+a[href="#/"]:hover, a[href="#/completed"]:hover, a[href="#/active"]:hover, .clear-completed:hover, a:hover {
+    text-decoration: underline;
+}
+
+.toggle:checked::before{
+    display: none;
+}
+
+.edit-todo{
+    margin: 0px 0px;
+    width: -webkit-fill-available;
 }

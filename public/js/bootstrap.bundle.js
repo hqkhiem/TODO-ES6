@@ -3589,7 +3589,7 @@ var modifiers = {
  * @name dataObject
  * @property {Object} data.instance The Popper.js instance
  * @property {String} data.placement Placement applied to popper
- * @property {String} data.originalPlacement Placement originally defined on init
+ * @property {String} data.originalPlacement Placement originally defined on createTodo
  * @property {Boolean} data.flipped True if popper has been flipped by flip modifier
  * @property {Boolean} data.hide True if the reference element is out of boundaries, useful to know when to hide the popper.
  * @property {HTMLElement} data.arrowElement Node used as arrow by arrow modifier
@@ -3701,7 +3701,7 @@ var Popper = function () {
     // with {} we create a new object with the options inside it
     this.options = _extends$1({}, Popper.Defaults, options);
 
-    // init state
+    // createTodo state
     this.state = {
       isDestroyed: false,
       isCreated: false,
